@@ -163,15 +163,23 @@ const TodoPage = () => {
       <Box
         sx={{
           flex: "1",
-          padding: "20px",
           borderRight: "1px solid #c4c4c4",
           display: "flex",
           flexDirection: "column",
           alignItems: "start",
-          maxWidth: openSideContent ? "75vw" : "100vw",
+          maxWidth: {
+            xs: openSideContent ? "0vw" : "100vw",
+            sm: openSideContent ? "70vw" : "100vw",
+            md: openSideContent ? "75vw" : "100vw",
+          },
           overflow: "hidden",
           gap: "10px",
           transition: "all 0.5s ease-in-out",
+          padding: {
+            xs: openSideContent ? "0" : "10px",
+            sm: "10px",
+            md: "20px",
+          },
         }}
       >
         <Box
@@ -198,7 +206,7 @@ const TodoPage = () => {
             <Typography sx={{ color: "black" }}>Add new task</Typography>
           </Button>
         </Box>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
           <Tabs
             value={selectedTab}
             onChange={handleChangeTab}
@@ -256,11 +264,14 @@ const TodoPage = () => {
 
       <Box
         sx={{
-          padding: openSideContent ? "20px" : "0",
+          padding: {
+            xs: openSideContent ? "10px" : "0",
+            md: openSideContent ? "20px" : "0",
+          },
           display: "flex",
           flexDirection: "column",
           gap: "10px",
-          maxWidth: "25vw",
+          maxWidth: { xs: "100vw", sm: "30vw", md: "25vw" },
           overflow: "hidden",
           width: openSideContent ? "100%" : "0",
           transition: "all 0.5s ease-in-out",
